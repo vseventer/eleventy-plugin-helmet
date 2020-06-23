@@ -13,9 +13,7 @@
   "main": "eleventy.dist.js",
   "scripts": {
     "clean": "rm eleventy.dist.js",
-
     "lint": "eslint eleventy.js helmet.js",
-
     "prebuild": "npm run lint",
     "build": "babel eleventy.js --no-comments -o eleventy.dist.js",
     "prepublish": "npm run build"
