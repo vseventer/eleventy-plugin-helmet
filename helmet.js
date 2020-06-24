@@ -24,7 +24,7 @@ const extractHelmetNodes = (target, currentNode, dict = {}) => {
       } = childNode.attrs || {};
 
       // Move node if it's a helmet node which' key hasn't been moved yet.
-      if (typeof key !== 'undefined' && !dict[key]) {
+      if (typeof key !== 'undefined' && (key === '' || !dict[key])) {
         // eslint-disable-next-line no-param-reassign
         dict[key] = true; // Add to dictionary.
         nodeList.push({ ...childNode, attrs });
@@ -32,16 +32,18 @@ const extractHelmetNodes = (target, currentNode, dict = {}) => {
       return nodeList;
     }, []);
 
-  // Push helmet nodes onto target.
-  target.push(...helmetNodes);
-
-  // Return node without helmet nodes, and recurse into direct children of children.
-  return {
+  // Recurse into direct children of children first so helmet node order is preserved.
+  const result = {
     ...currentNode,
     content: content
       .filter(({ attrs }) => !(attrs && hasOwnProperty.call(attrs, HELMET_ATTRIBUTE)))
       .map((childNode) => extractHelmetNodes(target, childNode, dict))
   };
+
+  // Then, push helmet nodes onto target.
+  target.push(...helmetNodes);
+
+  return result;
 };
 
 // Exports.

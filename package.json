@@ -14,7 +14,9 @@
   "scripts": {
     "clean": "rm eleventy.dist.js",
     "lint": "eslint eleventy.js helmet.js",
-    "prebuild": "npm run lint",
+    "pretest": "npm run lint",
+    "test": "mocha test/ --require @babel/register",
+    "prebuild": "npm run test",
     "build": "babel eleventy.js --no-comments -o eleventy.dist.js",
     "prepublish": "npm run build"
   },
@@ -28,10 +30,14 @@
     "@babel/cli": "^7.10.3",
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
+    "@babel/register": "^7.10.3",
     "babel-eslint": "^10.1.0",
+    "chai": "^4.2.0",
+    "chai-string": "^1.5.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.21.2"
+    "eslint-plugin-import": "^2.21.2",
+    "mocha": "^8.0.1"
   },
   "engines": {
     "node": ">=10"
