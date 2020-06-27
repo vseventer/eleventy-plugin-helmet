@@ -13,7 +13,7 @@
   "main": "eleventy.dist.js",
   "scripts": {
     "clean": "rm eleventy.dist.js",
-    "lint": "eslint eleventy.js helmet.js",
+    "lint": "eslint eleventy.js helmet.js test/",
     "pretest": "npm run lint",
     "test": "mocha test/ --require @babel/register",
     "prebuild": "npm run test",

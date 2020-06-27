@@ -2,6 +2,9 @@
   "root": true,
   "extends": "airbnb-base",
   "parser": "babel-eslint",
+  "env": {
+    "node": true
+  },
   "rules": {
     "comma-dangle": ["error", "never"]
   },

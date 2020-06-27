@@ -16,7 +16,7 @@ chai.use(chaiString);
 const postHtmlProcess = async (content) => {
   const { html } = await postHtml().use(postHtmlPlugin).process(content);
   return html;
-}
+};
 
 // Tests.
 describe('PostHTML plugin', () => {
@@ -170,9 +170,9 @@ describe('PostHTML plugin', () => {
       </html>
     `;
     try {
-      const output = await postHtmlProcess(input);
+      await postHtmlProcess(input);
       throw new Error('Test Failed');
-    } catch(e) {
+    } catch (e) {
       expect(e).to.be.instanceof(AssertionError);
     }
   });
