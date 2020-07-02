@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.1 (July 2, 2020)
+* Transpile all files to avoid module-related errors in some Node environments.
+
 ## 0.2.0 (June 24, 2020)
 * Add tests.
 * Fixed bug where helmet node order wasn't preserved.

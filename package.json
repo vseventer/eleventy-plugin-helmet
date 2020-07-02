@@ -10,14 +10,15 @@
   "author": "Mark van Seventer <mark@vseventer.com> (http://www.vseventer.com)",
   "repository": "vseventer/eleventy-plugin-helmet",
   "license": "MIT",
-  "main": "eleventy.dist.js",
+  "main": "dist/eleventy.js",
+  "files": [ "dist/" ],
   "scripts": {
-    "clean": "rm eleventy.dist.js",
-    "lint": "eslint eleventy.js helmet.js test/",
+    "clean": "rm -rf dist/",
+    "lint": "eslint '*.js' test/",
     "pretest": "npm run lint",
     "test": "mocha test/ --require @babel/register",
     "prebuild": "npm run test",
-    "build": "babel eleventy.js --no-comments -o eleventy.dist.js",
+    "build": "babel *.js --no-comments -d dist/",
     "prepublish": "npm run build"
   },
   "peerDependencies": {
