@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-helmet",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A document head manager for Eleventy.",
   "keywords": [
     "eleventy",
@@ -11,7 +11,9 @@
   "repository": "vseventer/eleventy-plugin-helmet",
   "license": "MIT",
   "main": "dist/eleventy.js",
-  "files": [ "dist/" ],
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "clean": "rm -rf dist/",
     "lint": "eslint '*.js' test/",
