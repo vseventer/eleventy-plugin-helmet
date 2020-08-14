@@ -91,7 +91,7 @@ In your `.eleventy.js` file, [register the plugin](https://www.11ty.dev/docs/plu
 const eleventyHelmetPlugin = require('eleventy-plugin-helmet');
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.registerPlugin(eleventyHelmetPlugin);
+  eleventyConfig.addPlugin(eleventyHelmetPlugin);
 };
 ```
 
