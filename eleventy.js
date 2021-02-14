@@ -14,7 +14,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addTransform(
     'eleventy-plugin-helmet',
     async (content, outputPath) => {
-      if (typeof outputPath === 'string' && outputPath.endsWith('.html')) {
+      if (outputPath.endsWith?.('.html')) {
         const { html } = await pipeline.process(content);
         return html;
       }
